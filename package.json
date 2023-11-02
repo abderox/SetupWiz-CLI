@@ -1,6 +1,6 @@
 {
   "name": "setupwiz-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "This CLI aims to reduce the elapsed time in the most stressful moments of switching to a different project, and setting up the environment.",
   "repository": {
@@ -14,11 +14,28 @@
     "l": "npm link",
     "u": "npm unlink"
   },
-  "keywords": [],
+  "keywords": [
+    "setup",
+    "wizard",
+    "cli",
+    "command",
+    "line",
+    "interface",
+    "terminal",
+    "command-line",
+    "command-line-interface",
+    "command-line-tool",
+    "command-line-app",
+    "command-line-utility",
+    "command-line-parser",
+    "command-line-parser",
+    "command-line-parser",
+    "command-line-parser",
+    "command"
+  ],
   "author": "Abdelhadi Mouzafir",
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.6.0",
     "chalk": "^5.3.0",
     "cli-spinner": "^0.2.10",
     "cli-spinners": "^2.9.1",
