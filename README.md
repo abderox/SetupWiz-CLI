@@ -18,14 +18,13 @@ SetupWiz CLI is a humble tool designed to make project switching and environment
 - **Custom Configuration**: Tailor your project settings and configurations to your needs.
 - **Interactive Menus**: User-friendly menus to guide you through the process.
 
-## Installation
+## Installation (For code explorers only)
 
 1. Ensure you have [Node.js](https://nodejs.org/) installed.
 2. Ensure you are in this project directory , `cd /path/to/project`.
 3. Run `npm install` from the terminal within your project folder. This will install all necessary dependencies for the setup wizard.
 4. Run `npm run l` to install the package globally in your os.
 5. Verify installation by running `swc --version`. You should see the version of SetupWiz CLI displayed.
-6. For the first usage, it may prompt for a password. Just enter a random word, and it will generate the default one.
 
 ## Demo
 
@@ -35,7 +34,13 @@ SetupWiz CLI is a humble tool designed to make project switching and environment
 
 ## Usage
 
-1. After the first use of the CLI, go to `homeDir/SetupWiz-cli/resources/cli`. (This path will be shown up in the CLI, at the bottom)
+⚠️ For the first usage, it may prompt for a password. Just enter a random word, and it will generate the default one.
+
+```bash
+swc
+```
+
+1. After the first usage of the CLI, go to `homeDir/SetupWiz-cli/resources/cli`. (This path will be shown up in the CLI, at the bottom)
 2. Open the file `banner.txt`, you will find something like `SetupWiz CLI, 205`.
 3. Replace `205` with a valid ansi256 color number of you choice then save.
 4. Open the file called `cli-description.txt` to update the description and save.
