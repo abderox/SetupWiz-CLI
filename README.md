@@ -54,6 +54,8 @@ swc
 |--------------|---------------|------|
 | [Mouzafir](https://github.com/abderox) | ![Mouzafir](https://avatars.githubusercontent.com/u/81394980?s=100&u=ee1030f5930eec9f57a0856d584f4b4d18cf345e&v=4) | abderox |
 
+⚠️ This is a pre-release, You may encounter undesired issues. ⚠️
+
 ## License
 
 This project is licensed under the [MIT](./LICENSE) License.
