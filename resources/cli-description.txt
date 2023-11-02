@@ -1,0 +1,2 @@
+:: SetupWiz CLI version ${{cli.version}} ::
+
