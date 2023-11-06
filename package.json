@@ -1,6 +1,6 @@
 {
   "name": "setupwiz-cli",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "type": "module",
   "description": "This CLI aims to reduce the elapsed time in the most stressful moments of switching to a different project, and setting up the environment.",
   "repository": {
@@ -42,9 +42,7 @@
     "commander": "^11.1.0",
     "dotenv": "^16.3.1",
     "figlet": "^1.7.0",
-    "inquirer": "^9.2.11",
-    "ps-node": "^0.1.6",
-    "tree-kill": "^1.2.2"
+    "inquirer": "^9.2.11"
   },
   "devDependencies": {
     "@types/ps-node": "^0.1.2"
