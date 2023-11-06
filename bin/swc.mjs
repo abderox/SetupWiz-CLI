@@ -7,9 +7,10 @@ import { listGitRepositories, updateGitConfig } from '../lib/commands/git-config
 import { chooseACustomer, createNewEnvironment, openAProjectDirectory } from '../lib/commands/set-up-env.mjs';
 import { addNewCommand, executeCommand, loadCustomCommands } from '../lib/commands/custom-commands.mjs';
 import { init } from './init.mjs';
+import { killProcessByPort, lookForProcessByPort } from '../lib/commands/process.mjs';
 
 
-const version = "1.0.0";
+const version = "1.0.8";
 
 const {
   gitVersion,
@@ -21,7 +22,7 @@ const {
   cliDetails } = await init();
 
 program.version(version);
-program.description(custom(logoBanner,colorBanner));
+program.description(custom(logoBanner, colorBanner));
 program.description(success(cliDetails));
 program.usage(
   '<command> option'
@@ -78,6 +79,13 @@ program
       {
         description: 'Show project license',
         example: '$ swc license',
+      },
+      {
+        description: 'Kill processes by Port number',
+        example: '$ swc p -k <port>',
+      }, {
+        description: 'Find Processes by Port number',
+        example: '$ swc p -s <port>',
       }
     ];
 
@@ -118,13 +126,13 @@ program.command('clone')
 program.command('setup')
   .description('Setup the environment for a specific customer project')
   .option('-c, --choose <customerName>', 'Like BCP, must be an existing customer!')
-  .option('-o, --open <customer>','Open project directory, Like --open BCP, must be an existing customer!')
+  .option('-o, --open <customer>', 'Open project directory, Like --open BCP, must be an existing customer!')
   .action((options) => {
     if (options.choose) {
       chooseACustomer(options.choose)
       return;
     }
-    if(options.open) {
+    if (options.open) {
       openAProjectDirectory(options.open);
       return;
     }
@@ -185,6 +193,29 @@ program.command('ct')
       await executeCommand(options.exec, 'git-config.json');
     }
   });
+
+program.command('p')
+  .description('Handle Processes')
+  .option('-k, --port <port>', 'Kill processes by Port number')
+  .option('-s, --search <port>', 'Find Processes by Port number')
+  .action(async (options) => {
+    if (options.length < 1) {
+      error('Please provide a valid argument ! or use --help to see options');
+      return;
+    }
+    if (options.port) {
+      const port = options.port && typeof options.port !== 'number' && parseInt(options.port) || undefined;
+      killProcessByPort(port);
+    }
+
+    if (options.search) {
+      const search = options.search && typeof options.search !== 'number' && parseInt(options.search?.trim() || '-1') || undefined;
+      lookForProcessByPort(search);
+    }
+
+
+  });
+
 
 program.command('license')
   .description('Show project license')

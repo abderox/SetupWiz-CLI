@@ -58,9 +58,8 @@ async function getPassword() {
 }
 
 async function decryptAndSaveConfig(password) {
-    const te = await readFile('--');
+    const te = await readFile('---');
     const decrypted = await decryptIt(password, te);
-
     const configJson = JSON.stringify(JSON.parse(decrypted), null, 2);
     await writeFile('git-config.json', configJson, false, false); 
 }
@@ -81,6 +80,11 @@ export async function readClear(password_, resourceProjectPath = null, resourceP
     }
 }
 
+
+
+// const readJson = await readFile('default.json');
+
+// await encrypt(JSON.stringify(JSON.parse(readJson)),'','---');
 
 
 

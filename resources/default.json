@@ -1,7 +1,7 @@
 {
     "bitbucketUsername": "AbdelhadiMou",
     "bitbucketRepoUrl": "bitbucket.org/company/",
-    "version": "2.0",
+    "version": "3.0",
     "customer": "",
     "path": "",
     "repositories": {
@@ -14,6 +14,16 @@
         },
         "backEnd": {
             "clone": true
+        }
+    },
+    "run":{
+        "frontEnd": {
+            "command" : "npm run start-win",
+            "apps" : []
+        },
+        "backEnd": {
+            "command" : "mvn spring-boot:run",
+            "apps" : []
         }
     },
     "currentBranch": "",
