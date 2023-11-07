@@ -16,14 +16,24 @@
             "clone": true
         }
     },
-    "run":{
+    "run": {
         "frontEnd": {
-            "command" : "npm run start-win",
-            "apps" : []
+            "command": "npm run start-win",
+            "apps": []
         },
         "backEnd": {
-            "command" : "mvn spring-boot:run",
-            "apps" : []
+            "command": "mvn spring-boot:run",
+            "apps": []
+        }
+    },
+    "install": {
+        "frontEnd": {
+            "command": "npm install",
+            "apps": []
+        },
+        "backEnd": {
+            "command": "mvn clean install -DskipTests",
+            "apps": []
         }
     },
     "currentBranch": "",
