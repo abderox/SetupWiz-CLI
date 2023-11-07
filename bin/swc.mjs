@@ -19,7 +19,7 @@ const {
   mvnVersion,
   logoBanner,
   colorBanner,
-  cliDetails } = await init();
+  cliDetails } = await init(version);
 
 program.version(version);
 program.description(custom(logoBanner, colorBanner));
