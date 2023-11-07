@@ -1,91 +1,40 @@
 {
     "bitbucketUsername": "AbdelhadiMou",
-    "bitbucketRepoUrl": "bitbucket.org/adria-team/",
-    "version": "3.5",
+    "bitbucketRepoUrl": "bitbucket.org/company/",
+    "version": "3.0",
     "customer": "",
     "path": "",
     "repositories": {
-      "frontEnd": [
-        "adria-client-front",
-        "adria-admin-front",
-        "adria-banque-front"
-      ],
-      "backEnd": [
-        "adria-administration-service",
-        "adria-amplitude-api",
-        "adria-amplitude-awb-api",
-        "adria-amplitude-demo-api",
-        "adria-amplitude-smg-api",
-        "adria-authentification-service",
-        "adria-bcp-api",
-        "adria-commun-api",
-        "adria-compte-service",
-        "adria-config-service",
-        "adria-contrat-service",
-        "adria-database-repo",
-        "adria-digital-marketing-service",
-        "adria-gateway2-service",
-        "adria-middle-service",
-        "adria-moyen-paiement-service",
-        "adria-nsia-api",
-        "adria-onespan-api",
-        "adria-otp-api",
-        "adria-properties-service",
-        "adria-registry-service",
-        "adria-remise-ordre-service",
-        "adria-reporting-service",
-        "adria-taches-service",
-        "adria-trade-service",
-        "adria-transaction-api",
-        "adria-transaction-service"
-      ]
+        "frontEnd": [],
+        "backEnd": []
     },
     "cloneOptions": {
-      "frontEnd": {
-        "clone": true
-      },
-      "backEnd": {
-        "clone": true
-      }
-    },
-    "run": {
-      "frontEnd": {
-        "command": "npm run start-win",
-        "apps": [
-          "adria-client-front",
-          "adria-banque-front"
-        ]
-      },
-      "backEnd": {
-        "command": "mvn spring-boot:run",
-        "apps": [
-          "adria-config-service"
-        ]
-      }
-    },
-    "install": {
-      "frontEnd": {
-        "command": "npm install",
-        "apps": [
-          "adria-admin-front"
-        ]
-      },
-      "backEnd": {
-        "command": "mvn clean install -DskipTests",
-        "apps": [
-          "adria-config-service"
-        ]
-      }
-    },
-    "currentBranch": "release/standard",
-    "defaultBranch": "master",
-    "custom": {
-      "commands": [
-        {
-          "command": "netstat -ano",
-          "description": "Display currently used ports",
-          "alias": "-"
+        "frontEnd": {
+            "clone": true
+        },
+        "backEnd": {
+            "clone": true
         }
-      ]
+    },
+    "run":{
+        "frontEnd": {
+            "command" : "npm run start-win",
+            "apps" : []
+        },
+        "backEnd": {
+            "command" : "mvn spring-boot:run",
+            "apps" : []
+        }
+    },
+    "currentBranch": "",
+    "defaultBranch": "",
+    "custom": {
+        "commands": [
+            {
+                "command": "netstat -ano",
+                "description": "Display currently used ports",
+                "alias": "-"
+            }
+        ]
     }
-  }
+}
