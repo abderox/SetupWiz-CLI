@@ -3,14 +3,14 @@ import { program } from 'commander';
 import cloneCommand from '../lib/commands/clone.mjs';
 import { getHomeDir, getResourcesOut, readFile } from '../utils/io.mjs';
 import { custom, error, info, log, success } from '../lib/logger.mjs';
-import { listGitRepositories, updateGitConfig } from '../lib/commands/git-config.mjs';
+import { importConfig, listGitRepositories, updateGitConfig } from '../lib/commands/git-config.mjs';
 import { chooseACustomer, createNewEnvironment, openAProjectDirectory } from '../lib/commands/set-up-env.mjs';
 import { addNewCommand, executeCommand, loadCustomCommands } from '../lib/commands/custom-commands.mjs';
 import { init } from './init.mjs';
 import { killProcessByPort, lookForProcessByPort } from '../lib/commands/process.mjs';
 
 
-const version = "1.1.4";
+const version = "1.1.5";
 
 const {
   gitVersion,
@@ -46,7 +46,7 @@ program
       },
       {
         description: 'Set Git repository URL for The config file',
-        example: '$ swc gc --url bitbucket.org/company-project/',
+        example: '$ swc gc --url "bitbucket.org/company-project/"',
       },
       {
         description: 'Setup a new configuration and much more',
@@ -59,6 +59,10 @@ program
       {
         description: 'Open a project directory for a specific customer',
         example: '$ swc setup -o "CUSTOMER-NAME"',
+      },
+      {
+        description: 'Import configuration file from source to CLI resources',
+        example: '$ swc setup -i "homedir\\source\\file.json"',
       },
       {
         description: 'List repositories for a specific project and the active branch in each',
@@ -127,6 +131,7 @@ program.command('setup')
   .description('Setup the environment for a specific customer project')
   .option('-c, --choose <customerName>', 'Like BCP, must be an existing customer!')
   .option('-o, --open <customer>', 'Open project directory, Like --open BCP, must be an existing customer!')
+  .option('-i, --import "<path>"', "Import configuration file from source to CLI resources")
   .action((options) => {
     if (options.choose) {
       chooseACustomer(options.choose)
@@ -134,6 +139,10 @@ program.command('setup')
     }
     if (options.open) {
       openAProjectDirectory(options.open);
+      return;
+    }
+    if (options.import) {
+      importConfig(options.import)
       return;
     }
     createNewEnvironment();
