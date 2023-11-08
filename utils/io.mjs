@@ -98,8 +98,19 @@ export const isPathExist = (path_) => {
  * @returns {Promise<void>} A promise that resolves when the directory is created.
  */
 export const mkdir = (path_) => {
+
+    let directory = path_;
+
+    if (directory === '.') {
+        directory = process.cwd();
+    }
+
+    if (directory.startsWith('.') && directory.length > 1) {
+        directory = directory.replace('./', '').replace('.\\','');
+        directory = composePath(process.cwd(), directory);
+    }
     return new Promise((resolve, reject) => {
-        fs.mkdir(path_, (err) => {
+        fs.mkdir(directory, (err) => {
             err ? reject(err) : resolve();
         });
     });
