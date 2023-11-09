@@ -37,16 +37,16 @@ program
         example: '$ swc clone --help',
       },
       {
-        description: 'Clone a repository by title',
-        example: '$ swc clone "some-repo-name"',
+        description: 'Clone a repository',
+        example: '$ swc clone',
       },
       {
         description: 'Set Git username for The config file',
-        example: '$ swc gc --username "Abdelhadi Mou"',
+        example: '$ swc gc --username "AbdelhadiMou"',
       },
       {
-        description: 'Set Git repository URL for The config file',
-        example: '$ swc gc --url "bitbucket.org/company-project/"',
+        description: 'Set Bitbucket project URL for The config file',
+        example: '$ swc gc --project "company-project"',
       },
       {
         description: 'Setup a new configuration and much more',
@@ -153,11 +153,11 @@ program
   .command('gc')
   .description('Update the main Config file, and some other useful commands')
   .option('-u, --username <username>', 'Update Bitbucket username')
-  .option('-r, --url "<url>"', 'Update Bitbucket URL, like : "bitbucket.org/company-project/"')
+  .option('-p, --project "<project>"', 'Update Bitbucket Project, like : "company-project"')
   .option('-l, --list "<path>"', 'Loop over the repositories and display the current branch for each.')
   .action((options) => {
     const username = options.username;
-    const url = options.url;
+    const project = options.project;
 
     if (!options || options.length < 1) {
       error('Please provide a valid argument ! or use --help to see options');
@@ -165,11 +165,11 @@ program
     }
 
     if (username) {
-      updateGitConfig(username, 'bitbucketUsername');
+      updateGitConfig(username, 'username');
     }
 
-    if (url) {
-      updateGitConfig(url, 'bitbucketRepoUrl');
+    if (project) {
+      updateGitConfig(project, 'bitbucketProject');
     }
     if (options.list) {
       info('Listing repositories along with the active branch :');

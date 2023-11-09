@@ -1,6 +1,7 @@
 {
-    "bitbucketUsername": "AbdelhadiMou",
-    "bitbucketRepoUrl": "bitbucket.org/company/",
+    "username": "AbdelhadiMou",
+    "gitVCS" : "bitbucket",
+    "bitbucketProject": "company-team",
     "version": "3.0",
     "customer": "",
     "path": "",
