@@ -3,14 +3,14 @@ import { program } from 'commander';
 import cloneCommand from '../lib/commands/clone.mjs';
 import { getHomeDir, getResourcesOut, readFile } from '../utils/io.mjs';
 import { custom, error, info, log, success } from '../lib/logger.mjs';
-import { importConfig, listGitRepositories, updateGitConfig } from '../lib/commands/git-config.mjs';
+import { importConfig, listGitRepositories, switchVCS, updateGitConfig } from '../lib/commands/git-config.mjs';
 import { chooseACustomer, createNewEnvironment, openAProjectDirectory } from '../lib/commands/set-up-env.mjs';
 import { addNewCommand, executeCommand, loadCustomCommands } from '../lib/commands/custom-commands.mjs';
 import { init } from './init.mjs';
 import { killProcessByPort, lookForProcessByPort } from '../lib/commands/process.mjs';
 
 
-const version = "1.1.7";
+const version = "1.1.8";
 
 const {
   gitVersion,
@@ -49,6 +49,14 @@ program
         example: '$ swc gc --project "company-project"',
       },
       {
+        description: 'Switch between Bitbucket and Github',
+        example: '$ swc gc --vsc',
+      },
+      {
+        description: 'List repositories for a specific project and the active branch in each',
+        example: `$ swc gc -l "${getHomeDir()}"`,
+      },
+      {
         description: 'Setup a new configuration and much more',
         example: '$ swc setup',
       },
@@ -65,10 +73,6 @@ program
         example: '$ swc setup -i "homedir\\source\\file.json"',
       },
       {
-        description: 'List repositories for a specific project and the active branch in each',
-        example: `$ swc gc -l '${getHomeDir()}'`,
-      },
-      {
         description: 'List all custom commands',
         example: '$ swc ct -l',
       },
@@ -78,7 +82,7 @@ program
       },
       {
         description: 'Execute a custom command',
-        example: '$ swc ct -e <command>',
+        example: '$ swc ct -e <alias>',
       },
       {
         description: 'Show project license',
@@ -154,6 +158,7 @@ program
   .description('Update the main Config file, and some other useful commands')
   .option('-u, --username <username>', 'Update Bitbucket username')
   .option('-p, --project "<project>"', 'Update Bitbucket Project, like : "company-project"')
+  .option('-v, --vsc', 'Switch between "bitbucket" and "github"')
   .option('-l, --list "<path>"', 'Loop over the repositories and display the current branch for each.')
   .action((options) => {
     const username = options.username;
@@ -171,6 +176,10 @@ program
     if (project) {
       updateGitConfig(project, 'bitbucketProject');
     }
+    if (options.vsc) {
+      switchVCS(options.vsc)
+    }
+
     if (options.list) {
       info('Listing repositories along with the active branch :');
       log('---------------------');
@@ -183,7 +192,7 @@ program.command('ct')
   .description('User custom commands')
   .option('-l, --list', 'List all custom commands')
   .option('-a, --add', 'Add a new custom command')
-  .option('-e, --exec <argument>', 'Execute command using alias')
+  .option('-e, --exec <alias>', 'Execute command using alias')
   .action(async (options) => {
     if (options.length < 1) {
       error('Please provide a valid argument ! or use --help to see options');

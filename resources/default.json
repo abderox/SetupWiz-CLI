@@ -1,6 +1,6 @@
 {
     "username": "AbdelhadiMou",
-    "gitVCS" : "bitbucket",
+    "gitVCS": "bitbucket",
     "bitbucketProject": "company-team",
     "version": "3.0",
     "customer": "",
@@ -45,6 +45,16 @@
                 "command": "netstat -ano",
                 "description": "Display currently used ports",
                 "alias": "-"
+            },
+            {
+                "command": "npm uninstall -g setupwiz-cli",
+                "description": "uninstall the CLI globally from my os",
+                "alias": "destroy"
+            },
+            {
+                "command": "npm update setupwiz-cli",
+                "description": "update the CLI to the latest version",
+                "alias": "update"
             }
         ]
     }

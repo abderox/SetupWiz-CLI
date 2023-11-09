@@ -1,13 +1,13 @@
 # SetupWiz CLI
 
-![Version](https://img.shields.io/badge/version-1.1.7-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1.8-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 [![npm version](https://badge.fury.io/js/setupwiz-cli.svg)](https://badge.fury.io/js/setupwiz-cli)
 
 SetupWiz CLI is a humble tool designed to make project switching and environment setup a breeze. Say goodbye to time-consuming configurations and hello to seamless transitions between your development projects.
 
 <p align='center'>
-    <img src='./github/logo.png' alt='screen-shot'>
+    <img src='./github/logo-1.png' alt='screen-shot'>
 </p>
 
 ## Features
@@ -30,7 +30,7 @@ SetupWiz CLI is a humble tool designed to make project switching and environment
 ## Demo
 
 <p align='center'>
-    <img src='./github/screen-shot-1.png' alt='screen-shot'>
+    <img src='./github/screen-shot-2.png' alt='screen-shot'>
 </p>
 
 ## Install the CLI (Globally)
