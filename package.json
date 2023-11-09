@@ -1,6 +1,6 @@
 {
   "name": "setupwiz-cli",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "type": "module",
   "description": "This CLI aims to reduce the elapsed time in the most stressful moments of switching to a different project, and setting up the environment.",
   "repository": {
