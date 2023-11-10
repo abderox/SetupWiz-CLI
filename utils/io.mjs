@@ -219,8 +219,7 @@ export async function removeFile(path_) {
         (resolve, reject) => {
             fs.unlink(path_, (err) => {
                 if (err) {
-                    error(`Error removing file: ${err.message}`);
-                    reject(err)
+                    resolve()
                 }
                 resolve()
             });
@@ -293,4 +292,18 @@ export function openDirectory(path = '.') {
     }
 }
 
+
+export function removeFolderRecursively(path_){
+    return new Promise(
+        (resolve, reject) => {
+            fs.rmdir(path_, { recursive: true }, (err) => {
+                if (err) {
+                    error(`Error removing folder: ${err.message}`);
+                    reject(err)
+                }
+                resolve()
+            });
+        }
+    )
+}
 

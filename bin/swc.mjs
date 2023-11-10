@@ -5,12 +5,12 @@ import { getHomeDir, getResourcesOut, readFile } from '../utils/io.mjs';
 import { custom, error, info, log, success } from '../lib/logger.mjs';
 import { importConfig, listGitRepositories, switchVCS, updateGitConfig } from '../lib/commands/git-config.mjs';
 import { chooseACustomer, createNewEnvironment, openAProjectDirectory } from '../lib/commands/set-up-env.mjs';
-import { addNewCommand, executeCommand, loadCustomCommands } from '../lib/commands/custom-commands.mjs';
+import { addNewCommand, executeCommand, loadCustomCommands, resetCLI } from '../lib/commands/custom-commands.mjs';
 import { init } from './init.mjs';
 import { killProcessByPort, lookForProcessByPort } from '../lib/commands/process.mjs';
 
 
-const version = "1.1.9";
+const version = "1.2.0";
 
 const {
   gitVersion,
@@ -241,6 +241,13 @@ program.command('license')
     const license = await readFile('LICENSE').catch(() => "https://github.com/abderox/SetupWiz-CLI/blob/master/LICENSE");
     log(license);
   })
+
+  program.command('reset')
+  .description('Reset CLI to default. It will remove all your added configurations')
+  .action(async () => {
+    await resetCLI();
+  })
+
 
 program.parse(process.argv);
 
