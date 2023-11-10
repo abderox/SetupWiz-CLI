@@ -24,7 +24,7 @@ SetupWiz CLI is a humble tool designed to make project switching and environment
 1. Ensure you have [Node.js](https://nodejs.org/) installed.
 2. Ensure you are in this project directory , `cd /path/to/project`.
 3. Run `npm install` from the terminal within your project folder. This will install all necessary dependencies for the setup wizard.
-4. Run `npm run l` to install the package globally in your os.
+4. Run `npm run dev` to install the package globally in your os.
 5. Verify installation by running `swc --version`. You should see the version of SetupWiz CLI displayed.
 
 ## Demo
