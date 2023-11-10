@@ -1,6 +1,6 @@
 # SetupWiz CLI
 
-![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.2.1-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 [![npm version](https://badge.fury.io/js/setupwiz-cli.svg)](https://badge.fury.io/js/setupwiz-cli)
 
