@@ -10,7 +10,7 @@ import { init } from './init.mjs';
 import { killProcessByPort, lookForProcessByPort } from '../lib/commands/process.mjs';
 
 
-const version = "1.2.2";
+const version = "1.2.3";
 
 const {
   gitVersion,

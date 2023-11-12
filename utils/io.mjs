@@ -204,10 +204,11 @@ export function replacePramWith(param, value, text) {
  * Creates a directory at the specified path if it does not already exist.
  * @param {string} directoryPath - The path of the directory to create.
  */
-function ensureDirectoryExists(directoryPath) {
+export  function ensureDirectoryExists(directoryPath) {
     fs.mkdir(directoryPath, { recursive: true }, (err) => {
         if (err) {
             error(`Error creating directory: ${err.message}`);
+            return;
         }
     });
 }
